@@ -1,0 +1,29 @@
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+<div class="todo-container">
+  <h2>My tasks</h2>
+  <div class="todo">
+    <form action="/" method="post" class="todo-header">
+      <input type="text" name="task" placeholder="My task..." aria-label="my task" autocomplete="off" autofocus/>
+      <button type="submit">+</button>
+    </form>
+    <div class="sort-buttons">
+    <a href="/?page=<%=(dataToShow/Item_per_page)%>&&sorted=-1"
+      ><span class="sorting"><i class="far fa-caret-square-left"></span></i
+    ></a>
+    <a href="/?page=<%=(dataToShow/Item_per_page)%>&&sorted=1"
+      ><span class="sorting"><i class="far fa-caret-square-right"></span></i
+    ></a>
+    </div>
+    <ul class="todo-list">
+      <%- include('include/_show') %>
+    </ul>
+  </div>
+  <div class="paggan"><%- include('include/_pagination') %></div>
+</div>
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->
