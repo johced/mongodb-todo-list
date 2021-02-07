@@ -26,7 +26,7 @@ app.set('view engine', 'ejs');
 app.use('/css', express.static(path.resolve(__dirname, 'assets/css')));
 
 // *** load routers ***
-// app.use('/', require('./server/routes/router'));
+app.use('/', require('./server/routes/router'));
 
 // *** create local server ***
 app.listen(PORT, () => {
