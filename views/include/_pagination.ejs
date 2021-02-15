@@ -1,20 +1,20 @@
 <% if(todos.length >=1) { %>
     <div class="pagination">
         <% if(currentPage !==1 && previousPage !==1) { %>
-            <a href="/?page=<%=page=1 %>&&sorted=<%=sorted%>">1</a>
+            <a href="/?page=<%=page=1 %>&sorted=<%=sorted%>">1</a>
              <% } %>
      <% if(hasPreviousPage) {  %>
-    <a href="/?page=<%= previousPage %>&&sorted=<%=sorted%>" > <%= previousPage %>  </a>
+    <a href="/?page=<%= previousPage %>&sorted=<%=sorted%>" > <%= previousPage %>  </a>
      
      <% } %>
-    <a href="/?page=<%= currentPage %>&&sorted=<%=sorted%>"> <%= currentPage %> </a>
+    <a href="/?page=<%= currentPage %>&sorted=<%=sorted%>"> <%= currentPage %> </a>
      
     <% if(hasNextPage) {  %>
-    <a href="/?page=<%= nextPage %>&&sorted=<%=sorted%>" > <%= nextPage %>  </a>
+    <a href="/?page=<%= nextPage %>&sorted=<%=sorted%>" > <%= nextPage %>  </a>
      <% } %>
-     
+
     <% if(lastPage !== currentPage && nextPage !== lastPage) {  %>
-    <a href="/?page=<%= lastPage%>&&sorted=<%=sorted%>" > <%= lastPage %>  </a>
+    <a href="/?page=<%= lastPage%>&sorted=<%=sorted%>" > <%= lastPage %>  </a>
      
      <% } %>
     <% }%>

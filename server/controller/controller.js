@@ -1,7 +1,7 @@
 let Tododb = require('../model/model');
 
 const renderTodo = async (req, res) => {
-  const Item_per_page = 3;
+  const Item_per_page = 5;
   const sorted = +req.query.sorted || -1;
   const page = +req.query.page || 1;
   let totalTodos;
@@ -47,7 +47,7 @@ const createTodo = async (req, res) => {
 
 const updateTodo = async (req, res) => {
   const id = req.params.id;
-  const Item_per_page = 3;
+  const Item_per_page = 5;
   const sorted = +req.query.sorted || -1;
   const page = +req.query.page || 1;
 
@@ -82,19 +82,24 @@ const updateTodo = async (req, res) => {
 
 const findIdUpdate = (req, res) => {
   const id = req.params.id;
+  const page = +req.query.page || 1;
+  const sort = +req.query.sorted || -1;
 
   Tododb.findByIdAndUpdate(id, { task: req.body.task }, (err) => {
     if (err) return res.send(500, err);
 
-    res.redirect('/');
+    // res.redirect('/');
+    res.redirect(`/?page=${page}&sorted=${sort}`);
   });
 };
 
 const deleteTodo = async (req, res) => {
   const id = req.params.id;
+  const page = +req.query.page || 1;
+  const sort = +req.query.sorted || -1;
   Tododb.findByIdAndDelete(id, (err) => {
     if (err) return res.send(500, err);
-    res.redirect('/');
+    res.redirect(`/?page=${page}&sorted=${sort}`);
   });
 };
 
