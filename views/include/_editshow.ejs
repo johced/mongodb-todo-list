@@ -1,7 +1,7 @@
 <% todos.forEach(details => { %> <% if (details._id == idTask) { %>
     <li class="todo-list-item">
       <form
-        action="/edit/<%= details._id %>/?page=<%=(currentPage)%>"
+        action="/edit/<%= details._id %>/?page=<%=(currentPage)%>&sorted=<%=sorted%>"
         method="POST"
       >
         <input type="text" value="<%= details.task %>" name="task" class="editinput"/>
@@ -13,7 +13,7 @@
     <li class="todo-list-item">
       <div class="todo-list-item-name"><%= details.task %></div>
       <a
-        href="/edit/<%= details._id %>/<%= currentPage %>&&sorted=<%=sorted%>"
+        href="/edit/<%= details._id %>/<%= currentPage %>&sorted=<%=sorted%>"
         class="edit"
       >
         <span class="fas fa-edit"></span>
